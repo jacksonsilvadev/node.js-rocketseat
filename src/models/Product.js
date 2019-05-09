@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Criando um Schema (Campos da base de dados)
 const ProductSchema = mongoose.Schema({
     title: {
         type: String,
@@ -18,5 +19,5 @@ const ProductSchema = mongoose.Schema({
         default: Date.now
     }
 })
-
+// Atribuindoo Schema a uma Model 
 mongoose.model('Product', ProductSchema);

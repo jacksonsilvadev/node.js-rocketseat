@@ -9,20 +9,11 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/nodeapi_rocketseat', {
     useNewUrlParser: true
 });
+// Iniciando todas as Models que estão dentro de requireDir
 requireDir('./src/models')
 
-const Product = mongoose.model('Product');
-
-// Criando a primeira rota.
-app.get('/', (req, res) => {
-    Product.create({
-        title: 'Rocket Native',
-        description: 'Build native apps with React',
-        url: 'https://github.com/facebook/react-native'
-    })
-
-    res.send('Hello World!');
-})
+// Atribuindo para usar as rotas em  um arquivo isolado
+app.use("/", require('./src/routes'))
 
 // Criando uma porta e inicializando
 app.listen(3001);
