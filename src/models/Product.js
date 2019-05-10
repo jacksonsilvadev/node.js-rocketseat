@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 // Criando um Schema (Campos da base de dados)
 const ProductSchema = mongoose.Schema({
@@ -19,6 +20,8 @@ const ProductSchema = mongoose.Schema({
         default: Date.now
     }
 })
+
+ProductSchema.plugin(mongoosePaginate);
 // Atribuindoo Schema a uma Model 
 mongoose.model('Product', ProductSchema);
 
