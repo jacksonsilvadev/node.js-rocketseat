@@ -16,6 +16,16 @@ module.exports = {
             console.log(err);
         }
     },
+    async show(req, res) {
+        try{
+            // Buscando uma informação pela id passado pera rota como parâmetro
+            const product = await Product.findById(req.params.id);
+
+            return res.json(product);
+        }catch (err) {
+            console.log(err);
+        }
+    },
     async store(req, res) {
         try {
         // Criação de product
