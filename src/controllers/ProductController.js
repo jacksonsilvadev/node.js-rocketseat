@@ -44,6 +44,15 @@ module.exports = {
         } catch (err) {
             console.log(err);
         }
+    },
+    async destroy(req, res) {
+        try {
+            // Como não precisa retornar nada, pois esta deletando não tem necessidade de criar a variável retornando
+            await Product.findByIdAndRemove(req.params.id);
+            return res.send();
+        } catch (err) {
+            console.log(err);
+        }
     }
    
 }
