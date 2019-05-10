@@ -36,5 +36,14 @@ module.exports = {
             console.log(err);
         }
     },
+    async update(req, res) {
+        try{
+            // o objeto new true, serve para o mongoDB me retornar o objeto do produto atualizado, caso não colocar ele retorna o objeto antes de ser atualizado
+            const product = await Product.findOneAndUpdate(req.params.id, req.body, { new:true });
+            return res.json(product);
+        } catch (err) {
+            console.log(err);
+        }
+    }
    
 }
