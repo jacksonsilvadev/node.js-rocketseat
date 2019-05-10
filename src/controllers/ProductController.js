@@ -15,7 +15,16 @@ module.exports = {
         } catch (err) {
             console.log(err);
         }
+    },
+    async store(req, res) {
+        try {
+        // Criação de product
+        const product = await Product.create(req.body);
 
-
-    }
+        return res.json(product)
+        } catch (err) {
+            console.log(err);
+        }
+    },
+   
 }
